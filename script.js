@@ -62,7 +62,9 @@ function off(s){
   if(!a.g)return;var t=ctx.currentTime;a.g.gain.cancelScheduledValues(t);a.g.gain.setValueAtTime(Math.max(a.g.gain.value,.001),t);a.g.gain.exponentialRampToValueAtTime(.0005,t+.35);
   a.os.forEach(function(o){o.stop(t+.4)});
 }
-function live(e){return !e.ctrlKey&&!e.metaKey&&!e.altKey}
+var pianoOn=!('IntersectionObserver' in window);
+if(!pianoOn)new IntersectionObserver(function(es){pianoOn=es[0].isIntersecting},{threshold:.3}).observe(document.getElementById('piano'));
+function live(e){var t=e.target,g=t&&t.tagName;return pianoOn&&!e.ctrlKey&&!e.metaKey&&!e.altKey&&g!=='INPUT'&&g!=='TEXTAREA'&&g!=='SELECT'&&!(t&&t.isContentEditable)}
 addEventListener('keydown',function(e){var k=e.key.toLowerCase();if(!live(e)||e.repeat||!(k in map))return;e.preventDefault();on(map[k])});
 addEventListener('keyup',function(e){var k=e.key.toLowerCase();if(k in map)off(map[k])});
 /* Moonlight Sonata: simplified arrangement of the opening, using only keys on screen */
