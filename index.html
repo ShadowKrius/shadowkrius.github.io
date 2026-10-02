@@ -1,351 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advait Bharadwaj</title>
-    <link rel="icon" href="https://i.ibb.co/zRsTj3p/Frame-1-37.png">
-
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" class="stylesheet">
-</head> 
-
+<meta charset="UTF-8">
+<meta name="theme-color" content="#04060f">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Advait Bharadwaj</title>
+<link rel="icon" href="https://i.ibb.co/zRsTj3p/Frame-1-37.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
 <body>
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+<nav class="glass" aria-label="Main">
+  <a href="#work">Work</a><a href="#projects">Projects</a><a href="#beyond">Beyond code</a><a href="#contact">Contact</a>
+</nav>
 
-    <!-------------------------- Header Area -------------------------->
-    <header class="header-area">
-        <div class="container">
-            <div class="header">
-               
-                <a href="" class="logo">
-                    
-                </a>
-                   
-                <ul class="navbar">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#education">Experience</a></li>
-                    <li><a href="#projects">Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                
-                <div class="menu_icon">
-                    <i class="fa fa-bars"></i>
-                </div>
+<main>
+<section class="hero" id="top">
+  <div class="hero-text">
+  <h1>Hi, I'm Advait Bharadwaj.</h1>
+  <p>Thank you for taking the time to check out my website. I build AI products and lead engineering at <b>PropertyAngel</b> in Bangalore.</p>
+  <div class="cta">
+    <a class="btn solid" href="files/Resume.pdf">Resume</a>
+    <a class="btn" href="mailto:advait.bharadwaj@outlook.com">Email me</a>
+    <a class="btn" href="https://github.com/ShadowKrius">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/advaitbharadwaj/">LinkedIn</a>
+  </div>
+  </div>
+  <div class="avatar"><span>AB</span><img src="files/Pic3.jpeg" alt="Advait Bharadwaj" onerror="this.remove()"></div>
+</section>
 
-            </div>
-        </div> 
-    </header>
- 
-    <!-------------------------- Home Page -------------------------->
-    <div class="FirstElement" id="home">
-        <div class="profile-photo">
-            <img src="files/Pic3.jpeg" alt="profile picture"> 
-        </div>
-        <div class="profile-text">
-            <h1>Advait Bharadwaj</h1><br>
-            <h3><span class="typed-text" id="typed-text"></span></h3>
-            <p>I’m a senior at the University of Massachusetts Amherst studying Computer Science and Mathematics (Statistics & Data Science). I’m currently seeking full-time opportunities for 2026. My interests lie at the intersection of AI, cross-platform app development, and impactful software engineering.</p>
-            
-            <div class="btn-group">
-                <a href="files/Resume.pdf" class="btn   active">Download CV</a>
-                <a href="mailto:abharadwaj@umass.edu" class="btn">Contact</a>
-            </div>
+<section id="work">
+  <h2>Work</h2>
+  <details class="glass" open>
+    <summary><b>Tech Lead, PropertyAngel</b><span>Jun 2026 – now</span><small>Bangalore · property management</small></summary>
+    <ul><li>Lead a team of 3 engineers reporting directly to the CEO, owning technology strategy and delivery across the company.</li><li>Direct development of the AI voice agent used for marketing and outreach, the company's Zoho Creator CRM infrastructure, and a rebuilt company website.</li><li>Currently leading development of PropertyAngel's mobile app, extending the customer portal to iOS and Android.</li></ul>
+  </details>
+  <details class="glass">
+    <summary><b>AI/ML Engineer Intern, Numinosity</b><span>Mar – May 2026</span><small>Mumbai · contract · shoppable entertainment startup</small></summary>
+    <ul><li>Built the initial company website and product demo, working directly with the cofounders. Core elements are still live at numinosity.ai.</li><li>Developed an ML fashion-detection pipeline (Gemini 2.5 Flash, Streamlit, SerpAPI) that powered a proof-of-concept product used in venture capital demos.</li></ul>
+  </details>
+  <details class="glass">
+    <summary><b>Automation Engineer, Seba Growth Partners</b><span>Jan – Feb 2026</span><small>Burlingame, CA · contract · private equity firm</small></summary>
+    <ul><li>Evaluated outreach and CRM tools (Salesforce, Clay, Reply.io, LinkedIn Sales Navigator, Handwrytten) and selected the best-fit stack.</li><li>Built and shipped a production multi-channel outreach workflow on Lemlist, with Instantly for domain warm-up and deliverability and Zapier for automated lead ingestion from Excel. Owned it end to end, from research through deployment.</li></ul>
+  </details>
+  <details class="glass">
+    <summary><b>AI/ML Engineer, PropertyAngel</b><span>May – Sep 2025</span><small>Bangalore · internship</small></summary>
+    <ul><li>Built a multi-agent AI system of 15+ GPT-4 bots using LangChain, automating rent and sale pricing, property search, and rental agreements, with FAISS semantic search over 10,000+ listings across 15+ cities.</li><li>Deployed on Docker and Google App Engine, cutting token usage by 40% and sustaining sub-3 second responses across 1,000+ sessions.</li></ul>
+  </details>
+  <details class="glass">
+    <summary><b>Head Teaching Assistant, Calculus</b><span>Sep 2024 – May 2025</span><small>UMass Amherst</small></summary>
+    <ul><li>Led office hours and coordinated a team of TAs supporting 2,000+ students each semester in a large-enrollment calculus course.</li><li>Seeing exactly where students got stuck motivated Math127GPT, an AI tutoring chatbot I later built to extend that support at scale.</li></ul>
+  </details>
+  <details class="glass">
+    <summary><b>Teaching Assistant, CS 383: Artificial Intelligence</b><span>2024 – 2025</span><small>UMass Amherst</small></summary>
+    <ul><li>Supported about 350 students each semester in the undergraduate AI course for a full year.</li><li>This is where I found how much I enjoy teaching and leading.</li></ul>
+  </details>
+  <details class="glass">
+    <summary><b>Volunteer Math Tutor, Homework House</b><span>May – Aug 2022</span><small>Holyoke, MA · NGO</small></summary>
+    <ul><li>Tutored students in math after school and helped with homework and reading.</li></ul>
+  </details>
+</section>
 
-            <div class="social">
-                <a href="mailto:abharadwaj@umass.edu"><i class="fa fa-envelope"></i></a>
-                <a href="https://github.com/ShadowKrius"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/advaitbharadwaj/"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
-    </div>
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <a class="glass card" href="https://github.com/ShadowKrius/Math127GPT"><h3>Math127GPT</h3><p>An AI tutoring chatbot used by 2,000+ calculus students at UMass Amherst. It searches the course textbook and explains concepts step by step, and it was built with professors to address real student needs.</p><div class="tags"><span>React · Vite · FastAPI · LangChain · FAISS · AWS</span></div></a>
+    <a class="glass card" href="https://github.com/ShadowKrius/CodeStrike"><h3>CodeStrike Go</h3><p>A competitive coding platform for 1v1 battles with real-time collaborative coding and evaluation. It has matchmaking, scoring and ELO ratings for balanced play, on scalable Docker and Firebase infrastructure.</p><div class="tags"><span>React · WebSockets · Firebase · CodeMirror · Docker</span></div></a>
+    <a class="glass card" href="https://github.com/ShadowKrius/Roommatez"><h3>Roommatez</h3><span class="win">Won $7,000, Berthiaume Executive Pitch Competition</span><p>A cross-platform app that matches college roommates by lifestyle, study and sleep habits. It has real-time sync, authentication, push notifications, in-app messaging and preference-based filtering.</p><div class="tags"><span>Flutter · Dart · Firebase</span></div></a>
+    <a class="glass card" href="https://github.com/ShadowKrius/Resonance"><h3>Resonance</h3><span class="win">Best Generative AI Hack, HackHer(413)</span><p>Generates music videos by analyzing a song's audio and lyrics. A Librosa and OpenAI pipeline extracts tempo, pitch and emotion, turns them into visual prompts, and OpenCV and FFmpeg assemble synchronized frames.</p><div class="tags"><span>Python · Hugging Face · OpenAI · Librosa</span></div></a>
+    <a class="glass card" href="https://github.com/ShadowKrius/safesteps"><h3>SafeSteps</h3><span class="win">Best UMass Hack, HackUMass XII 2024</span><p>A campus safety app with real-time navigation to the nearest HELP phone, live location sharing and emergency alerts. Google Maps gives turn-by-turn directions, and GetX keeps the UI responsive.</p><div class="tags"><span>Flutter · Dart · Firebase · Google Maps</span></div></a>
+    <a class="glass card" href="https://github.com/ShadowKrius/Chess-Engine"><h3>Chess Engine</h3><p>A Python chess game with a Pygame interface. The engine uses Negamax with alpha-beta pruning for a challenging single-player match.</p><div class="tags"><span>Python · Pygame · Jupyter</span></div></a>
+  </div>
+</section>
 
-        <!-------------------------- About Section -------------------------->
-    <section class="about-area" id="about">
-        <div class="container">
-            <div class="about">
-                
-                <div class="about-content">
-                    <h4>About Me</h4>
-                    <ul>
-                      <li> 
-                        My passion for solving real-world problems through technology has guided my journey in Computer Science and Mathematics. Over the years, I’ve led and contributed to projects across domains like AI-powered education tools, quantum vs. classical machine learning research, full-stack mobile app development, and market trend prediction.
-                      </li>
-                      <li>
-                        I’ve built tools that support thousands of students, won awards at major hackathons, and collaborated with faculty on impactful research. Whether I’m developing user-centric applications or experimenting with novel machine learning models, I’m driven by curiosity, creativity, and the challenge of building meaningful solutions.
-                      </li>
-                      <li> Languages: Python, Java, C, JavaScript, TypeScript, HTML/CSS, Dart, R</li>
-                        <li> Libraries: Pandas, TensorFlow, NumPy, Matplotlib, Scikit-learn, Hugging Face, Qiskit</li>
-                        <li> Tools & Frameworks: Flutter, Firebase, Git, Jupyter, ReactJS, Next.js, Streamlit, AWS</li>
+<section id="beyond">
+  <h2>Beyond code</h2>
+  <div class="bar">
+  <div class="tabs glass" role="tablist">
+    <button role="tab" aria-selected="true" data-p="music">Music</button>
+    <button role="tab" aria-selected="false" data-p="books">Books</button>
+    <button role="tab" aria-selected="false" data-p="hikes">Hikes</button>
+  </div>
+  <div class="arrows" id="arrows"><button class="btn ar" id="prev" aria-label="Previous">&#8249;</button><button class="btn ar" id="next" aria-label="Next">&#8250;</button></div>
+  </div>
 
-                    </ul>
-                </div>
-                                  
-                <div class="about-skills">
-                    <ul>
-                        <li>Name: Advait Bharadwaj</li>  
-                        <li>Hometown: Bangalore, India</li>
-                        <li>Email: abharadwaj@umass.edu</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+  <div class="stack">
+  <div class="panel" id="music">
+    <div class="tiles" data-list="albums"></div>
+  </div>
+  <div class="panel off" id="books" inert><div class="tiles" data-list="books"></div></div>
+  <div class="panel off" id="hikes" inert><div class="tiles" data-list="hikes"></div></div>
+  </div>
+  <div class="pianoblock">
+    <div class="now"><i></i>I'm learning to play the piano. Feel free to click the keys or play on your keyboard, or press the button to hear my favorite song.</div>
+    <div class="song"><button class="btn" id="play">&#9654; Play Moonlight Sonata</button></div>
+    <div class="glass pwrap"><div class="piano" id="piano" aria-label="Piano keyboard"></div></div>
+  </div>
+</section>
+</main>
 
+<footer id="contact">
+  <h2>Say hi.</h2>
+  <div class="cta">
+    <a class="btn solid" href="mailto:advait.bharadwaj@outlook.com">advait.bharadwaj@outlook.com</a>
+    <a class="btn" href="https://www.linkedin.com/in/advaitbharadwaj/">LinkedIn</a>
+  </div>
+  <small>© 2026 Advait Bharadwaj</small>
+</footer>
 
-    <!-------------- Education & Internship -------------->
-    <section class="education-content" id="education">
-        <div class="container">
-            <div class="row">
-                <div class="internship">
-                    <h3 class="title">Experience</h3>
-                    <div class="row">
-                        <div class="timeline-box">
-                            <div class="timeline">
-
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                <div class="circle-dot"></div>
-                                <h3 class="timeline-title">PropertyAngel Management Pvt. Ltd</h3>
-                                <div class="timeline-header">
-                                    <h4 class="timeline-title">AI/ML Engineering Intern</h4>
-                                    <h4 class="timeline-title date-title">
-                                    <i class="fa fa-calendar"></i> MAY 2025 – SEPT 2025
-                                    </h4>
-                                </div>
-                                <li class="timeline-text">Led the development of a multi-agent AI system (15+ GPT-4-powered bots) to automate real estate workflows like rent/sale analysis, property search, and rental documentation.</li>
-                                <li class="timeline-text">Built backend services using FastAPI, integrated Google Custom Search API & Brave Search, and used Firestore for session memory management and vector search recommendations.</li>
-                                <li class="timeline-text">Optimized OpenAI API usage with prompt tuning and logging, reducing token consumption by 40% across test cases. Deployed the system via Docker and GCP (App Engine).</li>
-                                <li class="timeline-text">Collaborated with mobile and infra teams to prepare clean API endpoints for seamless integration into PropertyAngel's customer app via FlutterFlow.</li>
-                                </div>
-
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">College of Natural Sciences, UMass Amherst</h3>
-                                    <div class="timeline-header">
-                                        <h4 class="timeline-title">Undergraduate Teaching Assistant for Math 127: Calculus I</h4>
-                                        <h4 class="timeline-title date-title">
-                                            <i class="fa fa-calendar"></i> SEPT 2023 - PRESENT
-                                        </h4>
-                                    </div>
-                                    <li class="timeline-text">
-                                        Involved in assisting a large class of over 1600 students in mastering challenging mathematical concepts.
-                                    </li>
-                                    <li class="timeline-text">
-                                        Supported lecture delivery, addressed student queries, and conducted office hours to ensure smooth course operations.
-                                    </li>
-                                    <li class="timeline-text">
-                                        Organized study groups, helped clarify their doubts, and collaborated closely with professors to manage the class effectively.
-                                    </li>
-                                    <li class="timeline-text">
-                                        Improved the overall class performance by providing timely support and creating a collaborative learning atmosphere.
-                                    </li>
-                                    
-                                </div>
-
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">
-                                        Manning College of Information and Computer Sciences, UMass Amherst
-                                    </h3>
-                                    <div class="timeline-header">
-                                        <h4 class="timeline-title">Undergraduate Course Assistant for CS 383: Artificial Intelligence</h4>
-                                        <h4 class="timeline-title date-title">
-                                            <i class="fa fa-calendar"></i> SEPT 2024 - MAY 2025
-                                        </h4>
-                                    </div>
-                                    <li class="timeline-text">Supported a course with over 300 students to enhance their understanding of Artificial Intelligence.
-                                    </li>
-                                    <li class="timeline-text">Responded to student inquiries and provided personalized feedback on assignments to improve student performance.
-                                    </li>
-                                    <li class="timeline-text">Played a key role in fostering an interactive learning environment, contributing to improved student engagement and academic success.
-                                    </li>
-                                </div> 
-
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">Manning College of Information and Computer Sciences, UMass Amherst</h3>
-                                    <div class="timeline-header">
-                                        <h4 class="timeline-title">Undergraduate Research Volunteer</h4>
-                                        <h4 class="timeline-title date-title">
-                                            <i class="fa fa-calendar"></i> MAY 2024 - SEPT 2024
-                                        </h4>
-                                    </div>
-                                    <li class="timeline-text">Engaged in a research project that involved evaluating the effectiveness of Classical versus Quantum Machine Learning models.</li>
-                                    <li class="timeline-text">Compared these models for performance in genomic sequence classification using a dataset with over 100,000 sequences.</li>
-                                    <li class="timeline-text">Analyzed data and applied various machine learning algorithms to process and classify the genomic sequences.</li>
-                                    <li class="timeline-text">Demonstrated that classical algorithms, in their current state, consistently outperformed quantum counterparts, providing key insights for future research.</li>
-                                </div>
-
-                                <!-- Timeline-item -->
-                                <div class="timeline-item">
-                                    <div class="circle-dot"></div>
-                                    <h3 class="timeline-title">
-                                        Homework House (NGO)
-                                    </h3>
-                                    <div class="timeline-header">
-                                        <h4 class="timeline-title">Voluntary Tutor</h4>
-                                        <h4 class="timeline-title date-title">
-                                            <i class="fa fa-calendar"></i> MAY 2022 — AUG 2022
-                                        </h4>
-                                    </div>
-                                    <li class="timeline-text">Contributed to Homework House's ambition of strengthening the quality of education for all children in Holyoke by providing them with individualized academic and social support in a safe and nurturing environment.
-                                    </li>
-                                    <li class="timeline-text">Assisted students enrolled in 1st through 7th grade with homework completion and improvement of reading and math skills and helped enhance the self-esteem and confidence of the students through encouragement and positive reinforcement.
-                                    </li>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-------------------------- Projects -------------------------->
-    <section class="project-content" id="projects">
-        <div class="container">
-            <div class="project-title">
-                <h4>Projects</h4>
-                <p>Discover my projects, where creativity meets innovation</p>
-            </div>
-
-            <!-- Project Filter -->
-            <div class="project-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="app">Mobile Apps</button>
-                <button class="filter-btn" data-filter="ai">AI/ML</button>
-                <button class="filter-btn" data-filter="web">Web Dev</button>
-                <button class="filter-btn" data-filter="game">Games</button>
-            </div>
-
-            <div class="projects">
-                <!-- Roommatez Project -->
-                <div class="project app">
-                    <div class="project-image">
-                        <img src="files/roommatez.jpg" alt="Roommatez App" class="project-img">
-                    </div>
-                    <a href="https://github.com/ShadowKrius/Roommatez" class="btn active"><i class="fa-brands fa-github"></i></a>
-                    <h4>Roommatez (Awarded $7000 in funding – Berthiaume Executive Pitch Competition)</h4>
-                    <p>Developed a cross-platform mobile app for college roommate matching based on lifestyle, study, and sleep habits. Implemented real-time data synchronization, user authentication, push notifications, in-app messaging system, and preference-based filtering to improve user compatibility. </p>
-                    <p style="margin-top: 20px;"></p>
-                    <p style="color: #ff0000;">Flutter, Dart, Firebase</p>
-                    <p></p>
-                </div>
-
-                <!-- Resonance Project -->
-                <div class="project ai">
-                    <div class="project-image">
-                        <img src="files/resonance.jpg" alt="Resonance Project" class="project-img">
-                    </div>
-                    <a href="https://github.com/ShadowKrius/Resonance" class="btn active"><i class="fa-brands fa-github"></i></a>
-                    <h4>Resonance (Awarded Best Generative AI Hack – HackHer(413))</h4>
-                    <p>Developed an AI-powered tool that generates dynamic music videos by analyzing audio and lyrics. Engineered a pipeline using Python, Librosa, and OpenAI API to extract tempo, pitch, and emotion from MP3 files. Designed a prompt-generation system that converts song characteristics into structured visual descriptions. Integrated OpenCV and FFmpeg to assemble frames into seamless, synchronized music videos.</p>
-                    <p style="margin-top: 20px;"></p>
-                    <p style="color: #ff0000;">Python, Hugging Face, OpenAI API, Google Collab, Librosa API</p>
-                    <p></p>
-                </div>
-
-                <!-- Math 127 Chatbot Project -->
-                <div class="project ai">
-                    <div class="project-image">
-                        <img src="files/math-chatbot.jpg" alt="Math 127 Chatbot" class="project-img">
-                    </div>
-                    <a href="https://github.com/ShadowKrius/Math127Chatbot" class="btn active"><i class="fa-brands fa-github"></i></a>
-                    <h4>Math 127 Chatbot</h4>
-                    <p>Built an advanced chatbot to support over 2000 calculus students at UMass Amherst. The chatbot helps students understand complex calculus concepts in detail and facilitates personalized learning experiences. This department-backed project was developed in collaboration with professors to address student learning needs. The chatbot leverages cutting-edge AI to explain calculus concepts, provide step-by-step problem solutions, and offer practice resources.</p>
-                    <p style="margin-top: 20px;"></p>
-                    <p style="color: #ff0000;">Python, LangChain, OpenAI API, AWS, Streamlit</p>
-                    <p></p>
-                </div>
-
-                <!-- SafeSteps Project -->
-                <div class="project app">
-                    <div class="project-image">
-                        <img src="files/safesteps.jpg" alt="SafeSteps App" class="project-img">
-                    </div>
-                    <a href="https://github.com/ShadowKrius/safesteps" class="btn active"><i class="fa-brands fa-github"></i></a>
-                    <h4>SafeSteps (Awarded Best UMass Hack at HackUMass XII 2024)</h4>
-                    <p>Developed a cross-platform campus safety app featuring real-time HELP phone navigation, live location sharing, and emergency alerts. Integrated Google Maps API for real-time mapping and turn-by-turn directions to the nearest HELP phone. Ensured smooth and responsive user interactions by optimizing performance with efficient state management using GetX.</p>
-                    <p style="margin-top: 20px;"></p>
-                    <p style="color: #ff0000;">Flutter, Dart, Firebase, Google Maps API</p>
-                    <p></p>
-                </div>
-
-                <!-- CodeStrike Go -->
-                <div class="project web">
-                    <div class="project-image">
-                        <img src="files/codestrike.jpg" alt="CodeStrike Platform" class="project-img">
-                    </div>
-                    <a href="https://github.com/ShadowKrius/CodeStrike" class="btn active"><i class="fa-brands fa-github"></i></a>
-                    <h4>CodeStrike Go</h4>
-                    <p>Developed a competitive coding platform enabling 1v1 battles with real-time collaborative coding and evaluation. Implemented matchmaking, scoring, and ELO rating systems for balanced, skill-based competition. Designed scalable infrastructure with Docker and Firebase for seamless gameplay and dynamic updates. Integrated CodeMirror for an interactive code editor and optimized real-time communication using WebSockets.</p>
-                    <p style="margin-top: 20px;"></p>
-                    <p style="color: #ff0000;">React JS, WebSockets, Firebase, CodeMirror, Docker</p>
-                    <p></p>
-                </div>
-
-                <!-- Chess Engine -->
-                <div class="project game">
-                    <div class="project-image">
-                        <img src="files/chess.jpg" alt="Chess Engine" class="project-img">
-                    </div>
-                    <a href="https://github.com/ShadowKrius/Chess-Engine" class="btn active"><i class="fa-brands fa-github"></i></a>
-                    <h4>Chess Engine</h4>
-                    <p>Built a Python-based chess project utilizing Pygame for interface design. Implemented a sophisticated chess engine employing the Nega Max algorithm with Alpha-Beta Pruning for challenging single-player gameplay.</p>
-                    <p style="margin-top: 20px;"></p>
-                    <p style="color: #ff0000;">Python, Pygame, Jupyter</p>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-        <!-------------------------- Contact Me -------------------------->
-
-    <section class="contact-content" id="contact">
-        <div class="container">
-            <div class="contact-title">
-                <h4>Contact Me</h4>
-                <p>Ask a question or just say hi</p>
-            </div>
-            <div class="contact">
-                <div class="btn-group">
-                    <a href="mailto:abharadwaj@umass.edu" class="btn   active">Email Me</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-        
-    <!-- Scroll to Top Button -->
-    <div class="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-    <!-- Dark/Light Mode Toggle -->
-    <div class="mode-toggle">
-        <i class="fas fa-sun"></i>
-    </div>
-
-    <!-------------------------- JS -------------------------->
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="script.js"></script>
-
-    <!-------------------------- Footer section -------------------------->
-    <footer class="footer">
-        <small class="message">© 2025 Advait Bharadwaj. All rights reserved.</small>
-    </footer>
-
+<script src="content.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

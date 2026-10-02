@@ -1,191 +1,80 @@
-$(document).ready(function() {
-
-  // Initialize the typewriter animation
-  var typed = new Typed('#typed-text', {
-      strings: [
-        'AI/ML Engineer',
-        'Software Developer',
-        'Data Scientist',
-        'Computer Scientist',
-        'Problem Solver',
-        'Innovator',
-        'Cross-Platform App Developer'
-      ],
-      typeSpeed: 100,
-      backSpeed: 75,
-      backDelay: 750,
-      startDelay: 750,
-      loop: true,
-      showCursor: true,
-      cursorChar: '|'
+function hue(s){var h=0;for(var i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))%360;return h}
+document.querySelectorAll('[data-list]').forEach(function(box){
+  var k=box.dataset.list;
+  DATA[k].forEach(function(x){
+    var d=document.createElement('div');d.className='tile'+(k==='books'?' book':k==='hikes'?' hike':'');
+    var g=hue(x.t+x.a);
+    d.style.background='linear-gradient('+(g)+'deg,#2a2a2a,#8a8a8a)';
+    d.innerHTML='<span>'+x.t+'<em>'+x.a+'</em></span>';
+    if(x.img){var im=new Image();im.alt=x.t;im.loading='lazy';im.onload=function(){d.classList.add('has-img')};im.onerror=function(){im.remove()};im.src=x.img;d.insertBefore(im,d.firstChild)}
+    box.appendChild(d);
   });
-
-  // Scroll to top button
-  $(".scroll-top").click(function() {
-    $("html, body").animate({ scrollTop: 0 }, 500);
-  });
-
-  // Dark/light mode toggle
-  $(".mode-toggle").click(function() {
-    $("body").toggleClass("light-mode");
-    
-    if ($("body").hasClass("light-mode")) {
-      $(this).html('<i class="fas fa-moon"></i>');
-      localStorage.setItem("mode", "light");
-    } else {
-      $(this).html('<i class="fas fa-sun"></i>');
-      localStorage.setItem("mode", "dark");
-    }
-  });
-
-  // Check for saved mode preference (default to dark mode)
-  if (localStorage.getItem("mode") === "light") {
-    $("body").addClass("light-mode");
-    $(".mode-toggle").html('<i class="fas fa-moon"></i>');
-  } else {
-    // Ensure we start in dark mode
-    $("body").removeClass("light-mode");
-    $(".mode-toggle").html('<i class="fas fa-sun"></i>');
-    localStorage.setItem("mode", "dark");
-  }
-
-  // Project filtering - smooth animations without jumps
-  $(".filter-btn").click(function() {
-    const value = $(this).attr("data-filter");
-    
-    // First, fade out all projects that don't match
-    if (value === "all") {
-      $(".project").fadeIn(600);
-    } else {
-      // Hide non-matching projects first
-      $(".project").not("." + value).fadeOut(300);
-      
-      // Then show matching projects after a slight delay
-      setTimeout(function() {
-        $(".project").filter("." + value).fadeIn(400);
-      }, 200);
-    }
-    
-    $(".filter-btn").removeClass("active");
-    $(this).addClass("active");
-  });
-
-  //sticky header
-    $(window).scroll(function() {
-      if ($(this).scrollTop() > 1) {
-        $(".header-area").addClass("sticky");
-      } else {
-        $(".header-area").removeClass("sticky");
-      }
-  
-      // Update the active section in the header
-      updateActiveSection();
-
-      // Show/hide scroll to top button
-      if ($(this).scrollTop() > 300) {
-        $(".scroll-top").css("display", "flex");
-      } else {
-        $(".scroll-top").css("display", "none");
-      }
-    });
-  
-    $(".header ul li a").click(function(e) {
-      e.preventDefault(); 
-  
-      var target = $(this).attr("href");
-  
-      if ($(target).hasClass("active-section")) {
-        return; 
-      }
-  
-      if (target === "#home") {
-        $("html, body").animate(
-          {
-            scrollTop: 0 
-          },
-          500
-        );
-      } else {
-        var offset = $(target).offset().top - 40; 
-  
-        $("html, body").animate(
-          {
-            scrollTop: offset
-          },
-          500
-        );
-      }
-  
-      $(".header ul li a").removeClass("active");
-      $(this).addClass("active");
-    });
-  
-
-    //Initial content revealing js
-    ScrollReveal({
-      distance: "100px",
-      duration: 2000,
-      delay: 200
-    });
-  
-    ScrollReveal().reveal(".header a, .profile-photo, .about-content, .education", {
-      origin: "left"
-    });
-    ScrollReveal().reveal(".header ul, .profile-text, .about-skills, .internship", {
-      origin: "right"
-    });
-    ScrollReveal().reveal(".project-title, .contact-title", {
-      origin: "top"
-    });
-    ScrollReveal().reveal(".projects, .contact", {
-      origin: "bottom"
-    });
-
-  //contact form to excel sheet
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbzUSaaX3XmlE5m9YLOHOBrRuCh2Ohv49N9bs4bew7xPd1qlgpvXtnudDs5Xhp3jF-Fx/exec';
-  const form = document.forms['submitToGoogleSheet']
-  const msg = document.getElementById("msg")
-
-  form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-          .then(response => {
-              msg.innerHTML = "Message sent successfully"
-              setTimeout(function () {
-                  msg.innerHTML = ""
-              }, 5000)
-              form.reset()
-          })
-          .catch(error => console.error('Error!', error.message))
-  })
-    
-  });
-  
-  function updateActiveSection() {
-    var scrollPosition = $(window).scrollTop();
-  
-    // Checking if scroll position is at the top of the page
-    if (scrollPosition === 0) {
-      $(".header ul li a").removeClass("active");
-      $(".header ul li a[href='#home']").addClass("active");
-      return;
-    }
-  
-    // Iterate through each section and update the active class in the header
-    $("section").each(function() {
-      var target = $(this).attr("id");
-      var offset = $(this).offset().top;
-      var height = $(this).outerHeight();
-  
-      if (
-        scrollPosition >= offset - 40 &&
-        scrollPosition < offset + height - 40
-      ) {
-        $(".header ul li a").removeClass("active");
-        $(".header ul li a[href='#" + target + "']").addClass("active");
-      }
-    });
-  }
-  
-
- 
+});
+/* tabs */
+var tabs=document.querySelectorAll('.tabs button');
+tabs.forEach(function(b){b.onclick=function(){
+  tabs.forEach(function(o){o.setAttribute('aria-selected',o===b)});
+  document.querySelectorAll('.panel').forEach(function(p){var off=p.id!==b.dataset.p;p.classList.toggle('off',off);p.inert=off});arrows();
+}});
+/* shelves: each one shows only whole tiles; arrows page through the rest */
+var GAP=14;
+function shelf(){return document.querySelector('.panel:not(.off) .tiles')}
+function fit(){
+  document.querySelectorAll('.tiles').forEach(function(t){
+    var c=t.firstElementChild;if(!c)return;
+    var w=c.offsetWidth,room=t.parentNode.offsetWidth;
+    t._page=Math.max(1,Math.floor((room-4+GAP)/(w+GAP)))*(w+GAP);
+  });arrows();
+}
+function arrows(){
+  var t=shelf();if(!t)return;
+  document.getElementById('arrows').classList.toggle('off',t.scrollWidth<=t.clientWidth+2);
+  t.classList.toggle('fade-r',t.scrollLeft+t.clientWidth<t.scrollWidth-2);
+  t.classList.toggle('fade-l',t.scrollLeft>2);
+  document.getElementById('prev').disabled=t.scrollLeft<=2;
+  document.getElementById('next').disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-2;
+}
+document.querySelectorAll('.tiles').forEach(function(t){t.addEventListener('scroll',arrows,{passive:true})});
+document.getElementById('prev').onclick=function(){var t=shelf();t.scrollBy({left:-t._page,behavior:'smooth'})};
+document.getElementById('next').onclick=function(){var t=shelf();t.scrollBy({left:t._page,behavior:'smooth'})};
+addEventListener('resize',fit);addEventListener('load',fit);fit();
+/* piano: home row = white keys, row above = black keys. Semitone 0 = C3 */
+var ctx,P=document.getElementById('piano'),act={},keys={},timers=[],playing=false;
+var WK=[['a',0],['s',2],['d',4],['f',5],['g',7],['h',9],['j',11],['k',12],['l',14],[';',16],["'",17]];
+var BK=[['w',1,0],['e',3,1],['t',6,3],['y',8,4],['u',10,5],['o',13,7],['p',15,8]];
+var map={};
+WK.forEach(function(k){map[k[0]]=k[1];var b=document.createElement('button');b.className='key';b.textContent=k[0].toUpperCase();b.tabIndex=-1;bind(b,k[1]);keys[k[1]]=b;P.appendChild(b)});
+BK.forEach(function(k){map[k[0]]=k[1];var b=document.createElement('button');b.className='key blk';b.textContent=k[0].toUpperCase();b.tabIndex=-1;
+  b.style.left='calc(100%/11*'+(k[2]+1)+' - 100%/11*.3)';b.style.width='calc(100%/11*.6)';bind(b,k[1]);keys[k[1]]=b;P.appendChild(b)});
+function bind(b,s){b.onpointerdown=function(e){e.preventDefault();on(s)};b.onpointerup=b.onpointerleave=b.onpointercancel=function(){off(s)}}
+function on(s){
+  if(act[s])return;
+  try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();
+  var t=ctx.currentTime,f=130.81*Math.pow(2,s/12),g=ctx.createGain(),os=[];
+  g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(.32,t+.008);g.gain.exponentialRampToValueAtTime(.06,t+1.6);g.gain.exponentialRampToValueAtTime(.001,t+5);
+  g.connect(ctx.destination);
+  [[1,1],[2,.45],[3,.22],[4,.1]].forEach(function(p){var o=ctx.createOscillator(),pg=ctx.createGain();o.type='sine';o.frequency.value=f*p[0];pg.gain.value=p[1]*.6;o.connect(pg);pg.connect(g);o.start(t);os.push(o)});
+  act[s]={g:g,os:os};}catch(e){act[s]={g:null,os:[]}}
+  keys[s].classList.add('on');
+}
+function off(s){
+  var a=act[s];if(!a)return;delete act[s];keys[s].classList.remove('on');
+  if(!a.g)return;var t=ctx.currentTime;a.g.gain.cancelScheduledValues(t);a.g.gain.setValueAtTime(Math.max(a.g.gain.value,.001),t);a.g.gain.exponentialRampToValueAtTime(.0005,t+.35);
+  a.os.forEach(function(o){o.stop(t+.4)});
+}
+function live(e){return !e.ctrlKey&&!e.metaKey&&!e.altKey}
+addEventListener('keydown',function(e){var k=e.key.toLowerCase();if(!live(e)||e.repeat||!(k in map))return;e.preventDefault();on(map[k])});
+addEventListener('keyup',function(e){var k=e.key.toLowerCase();if(k in map)off(map[k])});
+/* Moonlight Sonata: simplified arrangement of the opening, using only keys on screen */
+var SONG=[],T=0,N=.36;
+function bar(bass,tri){SONG.push([T,bass,4.2]);for(var r=0;r<4;r++)tri.forEach(function(n){SONG.push([T,n,.55]);T+=N})}
+bar(1,[8,13,16]);bar(1,[8,13,16]);bar(6,[9,13,16]);bar(6,[8,11,15]);bar(1,[8,13,16]);
+[1,8,13,16].forEach(function(n){SONG.push([T,n,3.5])});
+var btn=document.getElementById('play');
+function stopSong(){timers.forEach(clearTimeout);timers=[];playing=false;for(var k in act)off(+k);btn.innerHTML='&#9654; Play Moonlight Sonata'}
+btn.onclick=function(){
+  if(playing){stopSong();return}
+  playing=true;btn.innerHTML='&#9632; Stop';
+  SONG.forEach(function(e){timers.push(setTimeout(function(){on(e[1])},e[0]*1000),setTimeout(function(){off(e[1])},(e[0]+e[2])*1000))});
+  timers.push(setTimeout(stopSong,(T+3.8)*1000));
+};
